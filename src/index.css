@@ -1,0 +1,70 @@
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.start-flex{
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 30px;
+}
+.mainHeading {
+  text-align: center;
+  color: #333;
+  margin: auto;
+  font-size: xx-large;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+
+.button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.list {
+  background-color: #fff;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todoContent {
+  margin-right: 10px;
+}
+
+.buttonDelete {
+  background-color: #ff3333;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttonDelete:hover {
+  background-color: #cc0000;
+}
