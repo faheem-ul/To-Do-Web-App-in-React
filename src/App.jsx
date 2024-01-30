@@ -10,6 +10,7 @@ function Todo() {
     const storedTodos = localStorage.getItem('todos');
     return storedTodos ? JSON.parse(storedTodos) : [];
   });
+  const[editId , setEditId] = useState(0)
 
 
 
@@ -20,14 +21,30 @@ function Todo() {
 
   }
 
+  function handleEdit(index){
+    const editTask = todos[index]
+    SetInputValue(editTask)
+    setEditId(index)
+  }
+
   function handleSubmit(e) {
     e.preventDefault()
     // console.log(inputValue)
     // console.log(todos)
-    SetTodo([...todos, inputValue])
-    SetInputValue('')
-
+    if (editId !== null) {
+    const updatedTodos = [...todos];
+    console.log(editId);
+    updatedTodos[editId] = inputValue;
+    SetTodo(updatedTodos);
+    setEditId(null);
+  } else {
+    // If editId is not present, add a new todo
+    SetTodo([...todos, inputValue]);
   }
+  // Reset input value
+  SetInputValue('');
+}
+  
   // console.log(todos);
   function handleDelete(index) {
     console.log(index);
@@ -35,6 +52,8 @@ function Todo() {
     newTodos.splice(index, 1)
     SetTodo(newTodos)
   }
+
+ 
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
@@ -60,6 +79,7 @@ function Todo() {
           <li className="list" key={index}>
             <span className="todoContent">{todo}</span>
             <button className="buttonDelete" onClick={() => handleDelete(index)}>Delete</button>
+            <button className="editbutton" onClick={()=>handleEdit(index)}> Edit</button>
           </li>
         ))}
       </ul>
