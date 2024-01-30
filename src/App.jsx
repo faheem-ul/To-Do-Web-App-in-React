@@ -58,8 +58,7 @@ function Todo() {
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos])
-  // const retrievedTodos = JSON.parse(localStorage.getItem('todos'))
-  // console.log(retrievedTodos);
+  
 
   return (
     <>
